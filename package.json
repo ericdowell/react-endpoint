@@ -1,0 +1,98 @@
+{
+  "name": "react-endpoint",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Added React.js logic on top of the resource-endpoint package.",
+  "author": "Eric Dowell <github@ericdowell.com> (https://ericdowell.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericdowell/react-endpoint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ericdowell/react-endpoint/issues"
+  },
+  "homepage": "https://github.com/ericdowell/react-endpoint#readme",
+  "keywords": [
+    "json",
+    "api",
+    "simple",
+    "endpoint",
+    "resource",
+    "crud",
+    "react",
+    "axios"
+  ],
+  "main": "lib/react-endpoint.js",
+  "types": "lib/",
+  "scripts": {
+    "prebuild": "npm run clean && npm run lint -- --quiet",
+    "build": "npm run build:ts && npm run build:webpack",
+    "build:ts": "cross-env NODE_ENV=production tsc",
+    "build:webpack": "cross-env NODE_ENV=production webpack -p",
+    "clean": "rm -fr lib && echo '> removed lib folder'",
+    "prelint": "tsc --noEmit",
+    "lint": "eslint src --ext .ts --ext .tsx",
+    "lint:fix": "npm run lint -- --fix --quiet",
+    "pretest": "npm run lint",
+    "test": "cross-env TS_JEST_DISABLE_VER_CHECKER=true jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts?(x)": "npm run lint:fix"
+  },
+  "engines": {
+    "node": "^10.12.0 || >=12.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "qs": "^6.9.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "resource-endpoint": "^2.2.4",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^10.4.9",
+    "@testing-library/user-event": "^12.1.2",
+    "@types/jest": "^26.0.10",
+    "@types/node": "^14.6.0",
+    "@types/prop-types": "^15.7.3",
+    "@types/qs": "^6.9.4",
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-test-renderer": "^16.9.3",
+    "@types/url-join": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.9.1",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-import-resolver-webpack": "^0.12.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "prop-types": "^15.7.2",
+    "react-test-renderer": "^16.13.1",
+    "source-map-loader": "^1.0.2",
+    "ts-jest": "^26.2.0",
+    "ts-loader": "^8.0.2",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
