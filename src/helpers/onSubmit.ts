@@ -19,7 +19,7 @@ export function createOnSubmit(options: OnSubmitOptions): (event: React.FormEven
     event.preventDefault()
     setValues({ ...values, isLoading: true })
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { errors, isLoading, ...inputs } = values
+    const { errors, isLoading, message, ...inputs } = values
     const response = await options.makeRequest(inputs)
     const data = safeResponseData(response)
     if (data.errors) {
