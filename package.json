@@ -33,6 +33,7 @@
     "prelint": "tsc --noEmit",
     "lint": "eslint src --ext .ts --ext .tsx",
     "lint:fix": "npm run lint -- --fix --quiet",
+    "prepublish": "npm run build",
     "pretest": "npm run lint",
     "test": "cross-env TS_JEST_DISABLE_VER_CHECKER=true jest"
   },
