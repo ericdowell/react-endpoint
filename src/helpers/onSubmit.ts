@@ -9,6 +9,10 @@ export interface OnSubmitOptions {
   initialState?: Record<string, any>
 }
 
+const validateStatus = (status: number): boolean => {
+  return status >= 200 && status < 300
+}
+
 export function createOnSubmit(options: OnSubmitOptions): (event: React.FormEvent) => Promise<void> {
   const [values, setValues] = options.useState
   return async function onSubmit(event: React.FormEvent): Promise<void> {
@@ -16,7 +20,8 @@ export function createOnSubmit(options: OnSubmitOptions): (event: React.FormEven
     setValues({ ...values, isLoading: true })
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { errors, isLoading, ...inputs } = values
-    const data = safeResponseData(await options.makeRequest(inputs))
+    const response = await options.makeRequest(inputs)
+    const data = safeResponseData(response)
     if (data.errors) {
       setValues({
         ...values,
@@ -27,6 +32,8 @@ export function createOnSubmit(options: OnSubmitOptions): (event: React.FormEven
         return
       }
       return options.onError(data.errors, onSubmit)
+    } else if (!validateStatus(response.status) && data.message) {
+      return setValues({ ...values, message: data.message, isLoading: false })
     }
     if (typeof options.onSuccess === 'function') {
       await options.onSuccess(data)
