@@ -29,8 +29,8 @@ export function createStateProvider<S, R extends React.Reducer<any, any>>(option
     helpers: any
     state: S
   }
-  if (!options.actions) {
-    throw new Error("The 'reducer' or 'actions' option must be provided, one of them needs to be passed.")
+  if (!options.actions || typeof options.actions !== 'object' || Object.keys(options.actions).length === 0) {
+    throw new Error("A valid 'actions' option must be provided.")
   }
   const actionTypes = Object.values(options.actions)
   const knownActions = JSON.stringify(actionTypes)
