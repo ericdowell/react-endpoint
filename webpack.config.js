@@ -54,6 +54,12 @@ module.exports = {
       amd: 'react',
       root: 'react',
     },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'react-dom',
+      root: 'react-dom',
+    },
     'url-join': {
       commonjs: 'url-join',
       commonjs2: 'url-join',

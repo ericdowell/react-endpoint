@@ -5,8 +5,7 @@ import { applyReducerState } from './helpers'
 
 export function createStateProvider<S, R extends React.Reducer<any, any>>(options: {
   initialState: S
-  actions?: Record<string, string>
-  reducer?: R
+  actions: Record<string, string>
   actionCases?: StateActionCases<S>
   providerHelpers?: (dispatch: React.Dispatch<React.ReducerAction<R>>) => StateProviderHelpers
 }): [
@@ -30,10 +29,10 @@ export function createStateProvider<S, R extends React.Reducer<any, any>>(option
     helpers: any
     state: S
   }
-  if (!options.reducer && !options.actions) {
+  if (!options.actions) {
     throw new Error("The 'reducer' or 'actions' option must be provided, one of them needs to be passed.")
   }
-  const actionTypes = Object.values(options.actions ?? {})
+  const actionTypes = Object.values(options.actions)
   const knownActions = JSON.stringify(actionTypes)
   const Context = React.createContext<ProviderProps>({
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -42,18 +41,15 @@ export function createStateProvider<S, R extends React.Reducer<any, any>>(option
     state: options.initialState, // dispatch/state will be maintained by Reducer provided in StateProvider going forward
   })
   function StateProvider(props: StateProviderProps): React.ReactElement<React.ProviderProps<ProviderProps>> {
-    const reducer = options.reducer
-      ? options.reducer
-      : (prevState: S, action: StateAction): any => {
-          if (!actionTypes.includes(action.type)) {
-            throw new Error(`Unknown action: "${action.type}", known actions: ${knownActions}`)
-          }
-          if (typeof options?.actionCases?.[action.type] !== 'function') {
-            return applyReducerState(prevState, action)
-          }
-          return options.actionCases[action.type](prevState, action)
-        }
-    const [state, dispatch] = React.useReducer(reducer, options.initialState)
+    const [state, dispatch] = React.useReducer((prevState: S, action: StateAction): any => {
+      if (!actionTypes.includes(action.type)) {
+        throw new Error(`Unknown action: "${action.type}", known actions: ${knownActions}`)
+      }
+      if (typeof options?.actionCases?.[action.type] !== 'function') {
+        return applyReducerState(prevState, action)
+      }
+      return options.actionCases[action.type](prevState, action)
+    }, options.initialState)
     return (
       <Context.Provider
         value={{
