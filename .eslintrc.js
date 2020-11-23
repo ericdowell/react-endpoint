@@ -43,6 +43,7 @@ module.exports = {
     ],
     'jest/prefer-inline-snapshots': ['warn'],
     'no-eval': 'error',
+    'no-use-before-define': 'off', // Using @typescript-eslint version instead.
     // react
     'react/display-name': 'error',
     'react/function-component-definition': [2, { namedComponents: 'function-declaration' }],
@@ -65,6 +66,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-use-before-define': 'error',
     '@typescript-eslint/promise-function-async': ['error'],
     '@typescript-eslint/semi': ['error', 'never'],
   },

@@ -76,9 +76,7 @@ describe('<RequestForm />', (): void => {
     expect(onSuccess).toHaveBeenLastCalledWith(data)
   })
 
-  it('fireEvent.click(submit) successfully results in default data.errors function block', async (): Promise<
-    void
-  > => {
+  it('fireEvent.click(submit) successfully results in default data.errors function block', async (): Promise<void> => {
     expect.assertions(2)
     const onSuccess = jest.fn()
     const setValues = jest.fn()

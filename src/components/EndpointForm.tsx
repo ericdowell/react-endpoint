@@ -1,13 +1,8 @@
 import React from 'react'
 import { AxiosRequestConfig } from 'axios'
 import { func, node, object, string } from 'prop-types'
-import {
-  AxiosCrudEndpoint,
-  Constructor,
-  FormEndpoint,
-  RequestForm,
-  RequestFormProps,
-} from 'resource-endpoint'
+import { AxiosCrudEndpoint, Constructor, FormEndpoint } from 'resource-endpoint'
+import { RequestFormProps, RequestForm } from './RequestForm'
 
 export type EndpointFormConfig = Omit<AxiosRequestConfig, 'url' | 'method'>
 export type EndpointFormMethod = 'delete' | 'get' | 'patch' | 'post' | 'put'
