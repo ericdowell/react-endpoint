@@ -1,11 +1,12 @@
 # react-endpoint
+Experimental package, preventing re-renders have not been optimized. Some of the helper functions may be of use,
+use Components with caution.
 
 Added React.js logic on top of the [resource-endpoint](https://github.com/ericdowell/resource-endpoint) package.
 
 ### Examples
 
 ### Using RequestForm in React Login Component
-Then in your client app you can do the following:
 ```jsx
 // js/pages/Login.jsx
 import React from 'react'
