@@ -39,7 +39,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-merge": "npm i"
     }
   },
   "lint-staged": {
@@ -61,19 +62,19 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.6.3",
+    "@testing-library/user-event": "^12.7.1",
     "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.25",
+    "@types/node": "^14.14.27",
     "@types/prop-types": "^15.7.3",
     "@types/qs": "^6.9.5",
-    "@types/react": "^17.0.1",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-test-renderer": "^17.0.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-test-renderer": "^17.0.1",
     "@types/url-join": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "cross-env": "^7.0.3",
-    "eslint": "^7.19.0",
+    "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-import-resolver-webpack": "^0.13.0",
