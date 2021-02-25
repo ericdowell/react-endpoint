@@ -16,8 +16,6 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:react/recommended',
-    'prettier/react',
-    'prettier/standard',
     'plugin:prettier/recommended',
   ],
   parserOptions: {
