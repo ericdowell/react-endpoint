@@ -40,11 +40,9 @@ describe('<RequestForm />', (): void => {
           <input type="submit" data-testid="submit" />
         </RequestForm>,
       )
-      await act(
-        async (): Promise<void> => {
-          fireEvent.click(await rendered.findByTestId('submit'))
-        },
-      )
+      await act(async (): Promise<void> => {
+        fireEvent.click(await rendered.findByTestId('submit'))
+      })
       expect(setValues).toHaveBeenCalledTimes(2)
     })
 
@@ -66,11 +64,9 @@ describe('<RequestForm />', (): void => {
             <input type="submit" data-testid="submit" />
           </RequestForm>,
         )
-        await act(
-          async (): Promise<void> => {
-            fireEvent.click(await rendered.findByTestId('submit'))
-          },
-        )
+        await act(async (): Promise<void> => {
+          fireEvent.click(await rendered.findByTestId('submit'))
+        })
         expect(setValues).toHaveBeenCalledTimes(1)
         expect(onSuccess).toHaveBeenCalledTimes(1)
         expect(onSuccess).toHaveBeenLastCalledWith(data)
@@ -93,11 +89,9 @@ describe('<RequestForm />', (): void => {
             <input type="submit" data-testid="submit" />
           </RequestForm>,
         )
-        await act(
-          async (): Promise<void> => {
-            fireEvent.click(await rendered.findByTestId('submit'))
-          },
-        )
+        await act(async (): Promise<void> => {
+          fireEvent.click(await rendered.findByTestId('submit'))
+        })
         expect(setValues).toHaveBeenCalledTimes(2)
         expect(onSuccess).toHaveBeenCalledTimes(0)
       })
@@ -121,11 +115,9 @@ describe('<RequestForm />', (): void => {
             <input type="submit" data-testid="submit" />
           </RequestForm>,
         )
-        await act(
-          async (): Promise<void> => {
-            fireEvent.click(await rendered.findByTestId('submit'))
-          },
-        )
+        await act(async (): Promise<void> => {
+          fireEvent.click(await rendered.findByTestId('submit'))
+        })
         expect(setValues).toHaveBeenCalledTimes(2)
         expect(onError).toHaveBeenCalledTimes(1)
         expect(onSuccess).toHaveBeenCalledTimes(0)

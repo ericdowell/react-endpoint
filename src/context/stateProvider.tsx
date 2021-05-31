@@ -14,9 +14,7 @@ export function createStateProvider<S, R extends React.Reducer<any, any>>(option
     helpers: any
     state: S
   }>,
-  (
-    props: StateProviderProps,
-  ) => React.ReactElement<
+  (props: StateProviderProps) => React.ReactElement<
     React.ProviderProps<{
       dispatch: React.Dispatch<React.ReducerAction<R>>
       helpers: any
