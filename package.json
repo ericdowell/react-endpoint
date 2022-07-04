@@ -35,7 +35,7 @@
     "lint:fix": "npm run lint -- --fix --quiet",
     "prepublishOnly": "npm run build",
     "pretest": "npm run lint",
-    "test": "cross-env TS_JEST_DISABLE_VER_CHECKER=true jest"
+    "test": "cross-env TS_JEST_DISABLE_VER_CHECKER=true IS_REACT_ACT_ENVIRONMENT=true jest"
   },
   "husky": {
     "hooks": {
@@ -56,20 +56,20 @@
   "dependencies": {
     "axios": "^0.27.2",
     "qs": "^6.11.0",
-    "resource-endpoint": "^4.2.1",
+    "resource-endpoint": "^5.0.0",
     "url-join": "^4.0.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.1",
     "@types/jest": "^28.1.4",
     "@types/node": "^16.11.43",
     "@types/prop-types": "^15.7.5",
     "@types/qs": "^6.9.7",
-    "@types/react": "^17.0.47",
-    "@types/react-dom": "^17.0.17",
-    "@types/react-test-renderer": "^17.0.2",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "@types/react-test-renderer": "^18.0.0",
     "@types/url-join": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
@@ -92,9 +92,9 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-test-renderer": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
     "source-map-loader": "^4.0.0",
     "ts-jest": "^28.0.5",
     "ts-loader": "^9.3.1",
