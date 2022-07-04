@@ -33,13 +33,13 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'import/first': 'error',
     'import/no-unresolved': ['error'],
-    'jest/lowercase-name': [
-      'error',
-      {
-        ignore: ['describe'],
-      },
-    ],
-    'jest/prefer-inline-snapshots': ['warn'],
+    // 'jest/lowercase-name': [
+    //   'error',
+    //   {
+    //     ignore: ['describe'],
+    //   },
+    // ],
+    // 'jest/prefer-inline-snapshots': ['warn'],
     'no-eval': 'error',
     'no-use-before-define': 'off', // Using @typescript-eslint version instead.
     // react
